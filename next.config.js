@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['api-bwa-storegg.herokuapp.com'],
+    domains: ['bwa-store-gg-mern.herokuapp.com'],
   },
 };

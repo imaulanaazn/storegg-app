@@ -156,7 +156,7 @@ export default function Footer() {
           width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center',
         }}
       >
-        <p style={{ borderBottom: '1px dashed black' }}>
+        <p style={{ borderBottom: '1px dashed black', backgroundColor: 'white' }}>
           Built by
           {' '}
           <a target="_blank" href="https://irham-maulana.netlify.app" style={{ color: 'blue' }} rel="noreferrer">Irham Maulana </a>

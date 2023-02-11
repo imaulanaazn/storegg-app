@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { JWTPayloadTypes, UserTypes } from '../../../services/data-types';
 
 export default function Auth() {
+  const IMG = process.env.NEXT_PUBLIC_IMG;
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState({
     avatar: '',
@@ -43,7 +44,7 @@ export default function Auth() {
             aria-expanded="false"
           >
             <img
-              src={user.avatar}
+              src={user ? `${IMG}/${user.avatar}` : ''}
               className="rounded-circle"
               width="40"
               height="40"
@@ -57,7 +58,7 @@ export default function Auth() {
             <li>
               <Link href="/member/edit-profile"><a className="dropdown-item text-lg color-palette-2" href="#">Account Settings</a></Link>
             </li>
-            <li onClick={onLogout}><a className="dropdown-item text-lg color-palette-2" href="#">Log Out</a></li>
+            <li><a onClick={onLogout} className="dropdown-item text-lg color-palette-2" href="#">Log Out</a></li>
           </ul>
         </div>
       </li>

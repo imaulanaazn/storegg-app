@@ -43,9 +43,10 @@ export default function EditProfile() {
     const response = await updateProfile(data, user.id);
     if (response.error) {
       toast.error(response.message);
-    } else {
       Cookies.remove('token');
       router.push('/sign-in');
+    } else {
+      toast.success(response.message);
     }
   };
   return (

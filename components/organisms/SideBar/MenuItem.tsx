@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import cx from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -28,7 +30,7 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
       </div>
       <p className="item-title m-0">
         {onClick ? (
-          <a className="text-lg text-decoration-none">{title}</a>
+          <a className="text-lg t ext-decoration-none">{title}</a>
         ) : (
           <Link href={href}>
             <a className="text-lg text-decoration-none">{title}</a>

@@ -9,6 +9,7 @@ export default function FeaturedGame() {
   const getFeatureGameList = useCallback(async () => {
     const data = await getFeaturedGame();
     setGameList(data);
+    setGameList([]);
   }, [getFeaturedGame]);
 
   useEffect(() => {
@@ -29,15 +30,19 @@ export default function FeaturedGame() {
           className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
           data-aos="fade-up"
         >
-          {gameList.map((item: GameItemTypes) => (
-            <GameItem
-              key={item._id}
-              title={item.name}
-              category={item.category.name}
-              thumbnail={`${API_IMG}/${item.thumbnail}`}
-              id={item._id}
-            />
-          ))}
+          {gameList.length
+            ? gameList.map((item: GameItemTypes) => (
+              <GameItem
+                key={item._id}
+                title={item.name}
+                category={item.category.name}
+                thumbnail={`${API_IMG}/${item.thumbnail}`}
+                id={item._id}
+              />
+            ))
+            : (
+              <h6 className="error-featured-data">error while retreiving featured game data</h6>
+            )}
         </div>
       </div>
     </section>

@@ -125,10 +125,16 @@
 
 .featured-game .featured-game-card:hover .cover{
     opacity: 1;
+    font-weight: 300;
 }
 
 .featured-game .game-icon{
     margin-top: 3.125rem;
+}
+
+.featured-game .error-featured-data{
+    font-size: 1rem;
+    color: #7E8CAC;
 }
 
 @media (min-width:768px){

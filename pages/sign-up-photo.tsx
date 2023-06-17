@@ -19,7 +19,6 @@ export default function SignUpPhoto() {
 
   const getGameCategoryAPI = useCallback(async () => {
     const data = await getGameCategory();
-    console.log(data);
     setCategories(data);
     setFavorite(data[0]._id);
   }, [getGameCategory]);
@@ -33,7 +32,8 @@ export default function SignUpPhoto() {
     setLocalForm(JSON.parse(getLocalForm!));
   }, []);
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     const getLocalForm = await localStorage.getItem('user-form');
     const form = JSON.parse(getLocalForm!);
     const data = new FormData();
@@ -83,7 +83,7 @@ export default function SignUpPhoto() {
                   />
                 </div>
               </div>
-              <h2 className="fw-bold text-xl text-center color-palette-1 m-0">{localForm.name}</h2>
+              <h2 className="fw-bold text-xl text-center color-palette-1 m-0">{localForm.name || ''}</h2>
               <p className="text-lg text-center color-palette-1 m-0">{localForm.email}</p>
               <div className="pt-50 pb-50">
                 <label htmlFor="category" className="form-label text-lg fw-medium color-palette-1 mb-10">
@@ -115,7 +115,7 @@ export default function SignUpPhoto() {
               <button
                 type="button"
                 className="btn btn-create fw-medium text-lg text-white rounded-pill mb-16"
-                onClick={onSubmit}
+                onClick={(e) => { onSubmit(e); }}
               >
                 Create My Account
               </button>

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -44,7 +45,7 @@ export default function Auth() {
             aria-expanded="false"
           >
             <img
-              src={user ? `${IMG}/${user.avatar}` : ''}
+              src={user ? user.avatar ? `${IMG}/${user.avatar}` : '/img/default-profile.png' : ''}
               className="rounded-circle"
               width="40"
               height="40"

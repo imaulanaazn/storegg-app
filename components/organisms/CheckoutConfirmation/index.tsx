@@ -24,7 +24,7 @@ export default function CheckoutConfirmation() {
       voucher: dataItem._id,
       nominal: dataTopUp.nominalItem._id,
       payment: dataTopUp.paymentItem.payment._id,
-      bank: dataTopUp.paymentItem.bank._id,
+      bank: dataTopUp.paymentItem.bank,
       name: dataTopUp.bankAccountName,
       accountUser: dataTopUp.verifyID,
     };

@@ -1,27 +1,32 @@
-import jwtDecode from 'jwt-decode';
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import Cookies from 'js-cookie';
+import jwtDecode from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import SideBar from '../../components/organisms/SideBar';
 import Input from '../../components/atoms/Input';
+import SideBar from '../../components/organisms/SideBar';
 import { JWTPayloadTypes, UserTypes } from '../../services/data-types';
 import { updateProfile } from '../../services/member';
 
 interface UserStateTypes {
   id: string;
-  name: string;
+  username: string;
   email: string;
   avatar: any;
 }
 
+/* eslint-disable jsx-a11y/no-redundant-roles */
 export default function EditProfile() {
   const [user, setUser] = useState<UserStateTypes>({
     id: '',
-    name: '',
+    username: '',
     email: '',
     avatar: '',
   });
+
   const [imagePreview, setImagePreview] = useState('/');
   const router = useRouter();
 
@@ -39,16 +44,16 @@ export default function EditProfile() {
     const data = new FormData();
 
     data.append('image', user.avatar);
-    data.append('name', user.name);
+    data.append('username', user.username);
     const response = await updateProfile(data, user.id);
     if (response.error) {
       toast.error(response.message);
+    } else {
       Cookies.remove('token');
       router.push('/sign-in');
-    } else {
-      toast.success(response.message);
     }
   };
+
   return (
     <section className="edit-profile overflow-auto">
       <SideBar activeMenu="settings" />
@@ -61,16 +66,16 @@ export default function EditProfile() {
                 <div className="image-upload">
                   <label htmlFor="avatar">
                     {imagePreview === '/' ? (
-                      <img src={user.avatar} alt="icon upload" width={90} height={90} style={{ borderRadius: '100%' }} />
+                      <img src={`${process.env.NEXT_PUBLIC_IMG}/${user.avatar}`} className="rounded-circle" alt="icon upload" width={90} height={90} />
                     ) : (
-                      <img src={imagePreview} alt="icon upload" width={90} height={90} style={{ borderRadius: '100%' }} />
+                      <img src={imagePreview} className="rounded-circle" alt="icon upload" width={90} height={90} />
                     )}
                   </label>
                   <input
                     id="avatar"
                     type="file"
                     name="avatar"
-                    accept="image/png, image/jpeg"
+                    accept="image/png, image/jpeg, image/jpg"
                     onChange={(event) => {
                       const img = event.target.files![0];
                       setImagePreview(URL.createObjectURL(img));
@@ -85,10 +90,10 @@ export default function EditProfile() {
               <div className="pt-30">
                 <Input
                   label="Full Name"
-                  value={user.name}
+                  value={user.username}
                   onChange={(event) => setUser({
                     ...user,
-                    name: event.target.value,
+                    username: event.target.value,
                   })}
                 />
               </div>
@@ -96,8 +101,8 @@ export default function EditProfile() {
                 <Input label="Email Address" disabled value={user.email} />
               </div>
               {/* <div className="pt-30">
-                <Input label="Phone" />
-              </div> */}
+                            <Input label="Phone" />
+                        </div> */}
               <div className="button-group d-flex flex-column pt-50">
                 <button
                   type="button"
@@ -108,9 +113,7 @@ export default function EditProfile() {
                 </button>
               </div>
             </form>
-
           </div>
-
         </div>
       </main>
     </section>

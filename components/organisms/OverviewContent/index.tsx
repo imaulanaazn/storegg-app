@@ -8,9 +8,9 @@ import TableRow from './TableRow';
 export default function OverviewContent() {
   const [count, setCount] = useState([]);
   const [data, setData] = useState([]);
-
   const getMemberOverviewAPI = useCallback(async () => {
     const response = await getMemberOverview();
+    console.log(response);
     if (response.error) {
       toast.error(response.message);
     } else {

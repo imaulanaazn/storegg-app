@@ -7,6 +7,7 @@ interface CategoriProps {
     nominal: number,
     icon: 'ic-desktop' | 'ic-mobile'
 }
+
 export default function Categori(props: CategoriProps) {
   const { children, nominal, icon } = props;
   return (

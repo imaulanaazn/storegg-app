@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback, useEffect, useState,
+} from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { setSignUp } from '../services/auth';
@@ -32,7 +34,7 @@ export default function SignUpPhoto() {
     setLocalForm(JSON.parse(getLocalForm!));
   }, []);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e:any) => {
     e.preventDefault();
     const getLocalForm = await localStorage.getItem('user-form');
     const form = JSON.parse(getLocalForm!);
@@ -83,7 +85,7 @@ export default function SignUpPhoto() {
                   />
                 </div>
               </div>
-              <h2 className="fw-bold text-xl text-center color-palette-1 m-0">{localForm.name || ''}</h2>
+              <h2 className="fw-bold text-xl text-center color-palette-1 m-0">{localForm.name}</h2>
               <p className="text-lg text-center color-palette-1 m-0">{localForm.email}</p>
               <div className="pt-50 pb-50">
                 <label htmlFor="category" className="form-label text-lg fw-medium color-palette-1 mb-10">

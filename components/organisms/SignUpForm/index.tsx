@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 export default function SignUpForm() {
   const [name, setName] = useState('');
@@ -12,7 +13,10 @@ export default function SignUpForm() {
     label: cx('form-label text-lg fw-medium color-palette-1 mb-10'),
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e:any) => {
+    e.preventDefault();
+    if (!password) toast.error('mohon isi kolom password');
+
     const userForm = {
       email,
       name,

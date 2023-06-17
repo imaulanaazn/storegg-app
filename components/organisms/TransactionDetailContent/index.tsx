@@ -44,7 +44,7 @@ export default function TransactionDetailContent(props: TransactionDetailContent
                   </div>
                 </div>
                 <div>
-                  <p className="fw-medium text-center label pending m-0 rounded-pill">{data.status}</p>
+                  <p className={`fw-medium text-center label ${data.status} m-0 rounded-pill`}>{data.status}</p>
                 </div>
               </div>
               <hr />

@@ -7,8 +7,8 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'https://storegg-server.up.railway.app/api/:path*', // Replace with your target URL
+        source: '/api/v1/:path*',
+        destination: 'https://storegg-server.up.railway.app/api/v1/:path*', // Replace with your target URL
       },
     ];
   },

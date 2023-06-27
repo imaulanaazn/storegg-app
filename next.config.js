@@ -2,7 +2,10 @@ module.exports = {
   images: {
     domains:
     ['storegg-server-production.up.railway.app'],
-    formats: ['image/jpeg', 'image/png'],
+    formats: [
+      'image/jpeg',
+      'image/png',
+    ],
   },
   async rewrites() {
     return [

@@ -22,6 +22,10 @@
     display: none;
 }
 
+.navbar-expand-lg .navbar-nav .nav-item img{
+    object-fit: cover;
+}
+
 .navbar-expand-lg .navbar-nav .dropdown-menu{
     right: 0;
     left: auto;

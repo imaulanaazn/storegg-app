@@ -21,6 +21,11 @@
     position: relative;
 }
 
+.sidebar .content .user img{
+    object-fit: cover;
+    border-radius: 100%;
+}
+
 .sidebar .menus .item.active a,
 .sidebar .menus .item:hover a{
     color: #0C145A;

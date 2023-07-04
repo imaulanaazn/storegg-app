@@ -22,6 +22,10 @@
     max-width: 900px;
 }
 
+.overview .latest-transaction .main-content-table img{
+    object-fit: cover;
+}
+
 .overview .latest-transaction .game-title-header{
     margin-top: 10px;
     margin-bottom: 10px;

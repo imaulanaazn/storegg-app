@@ -46,7 +46,7 @@ export default function Auth() {
           >
             <img
               src={user ? user.avatar ? `${IMG}/${user.avatar}` : '/img/default-profile.png' : ''}
-              className="rounded-circle"
+              className="rounded-circle "
               width="40"
               height="40"
               alt=""

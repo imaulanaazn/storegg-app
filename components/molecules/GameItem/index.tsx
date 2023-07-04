@@ -17,12 +17,12 @@ export default function GameItem(props: GameItemProps) {
         <a>
           <div className="blur-sharp">
             {/* [CODE UPDATE] menambahkan layout="fixed" untuk memperbaiki responsive di mobile */}
-            <Image className="thumbnail" src={thumbnail} width={205} height={270} layout="fixed" alt="thumbnail" />
+            <img className="thumbnail" src={thumbnail} width={205} height={270} alt="thumbnail" />
           </div>
           <div className="cover position-absolute bottom-0 m-32">
             <div className="d-flex flex-column h-100 justify-content-between text-decoration-none">
               <div className="game-icon mx-auto">
-                <Image src="/icon/console.svg" width={54} height={36} alt="console" layout="fixed" />
+                <img src="/icon/console.svg" width={54} height={36} alt="console" />
               </div>
               <div>
                 <p className="fw-semibold text-white text-xl m-0">{title}</p>

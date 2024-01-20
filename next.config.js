@@ -1,3 +1,3 @@
 module.exports = {
-  images: { domains: ['storegg-server-production.up.railway.app'], formats: ['image/jpeg', 'image/png'] },
+  images: { domains: ['web-production-3e52.up.railway.app'], formats: ['image/jpeg', 'image/png'] },
 };
